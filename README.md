@@ -35,3 +35,52 @@ It then safely deletes these users and logs any failures.
 Install the SDK if needed:
 ```powershell
 Install-Module Microsoft.Graph -Scope CurrentUser -Force
+
+---
+
+## 🔐 Microsoft Graph Permissions
+
+These permissions are required and will be requested during interactive sign-in via `Connect-MgGraph`:
+
+- `User.ReadWrite.All`
+- `Directory.Read.All`
+
+---
+
+## 🚀 How to Use
+
+1. Open **PowerShell as Administrator**.
+2. Run the script.
+3. Sign in when prompted.
+4. Review the output:
+
+   - ✅ **Deleted users** will be shown in the console.
+   - 📁 **Backups** are exported to `B2B_Guests_ToBeDeleted.csv`.
+   - ⚠️ **Failures** are logged in `B2B_DeleteFailures.csv`.
+
+---
+
+## ⚠️ Warnings
+
+- This script **permanently deletes users**.
+- Carefully review `B2B_Guests_ToBeDeleted.csv` before running the script in production.
+- Deleted B2B accounts **cannot be recovered** unless they are still within the soft-delete retention period (typically 30 days).
+
+---
+
+## 📂 Output Files
+
+| File Name                    | Description                                      |
+|-----------------------------|--------------------------------------------------|
+| `B2B_Guests_ToBeDeleted.csv` | Backup list of users targeted for deletion       |
+| `B2B_DeleteFailures.csv`     | Log of failed deletions, including error messages |
+
+---
+
+## 💡 Optional Enhancements
+
+You may extend this script to:
+
+- Add a **dry-run mode** for testing without making changes
+- Send **email or Teams alerts** when deletions or errors occur
+- Schedule as a job using **Azure Automation**, **Windows Task Scheduler**, or a **CI/CD pipeline**
