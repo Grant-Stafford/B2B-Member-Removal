@@ -33,8 +33,8 @@ It then safely deletes these users and logs any failures.
 - Microsoft Graph PowerShell SDK
 
 Install the SDK if needed:
-```powershell
-Install-Module Microsoft.Graph -Scope CurrentUser -Force
+powershell
+Install-Module Microsoft.Graph -Scope CurrentUser -Force 
 
 ---
 
