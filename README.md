@@ -30,7 +30,7 @@ It then safely deletes these users and logs any failures.
 ## ✅ Requirements
 
 - PowerShell 5.1+ (or PowerShell Core)
-- Microsoft Graph PowerShell SDK
+- User.Administrator Permissions
 
 Install the SDK if needed:
 powershell
